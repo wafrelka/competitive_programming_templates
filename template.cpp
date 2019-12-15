@@ -19,12 +19,12 @@ using namespace std;
 #define DBG_PRINT(s, t, u) {}
 #endif
 #define dbg(x) DBG_PRINT(#x, x, std::endl)
-#define dbgn(x) DBG_PRINT(#x, x, ", ")
+#define dbgc(x) DBG_PRINT(#x, x, ", ")
 #define idbg(x, i) DBG_PRINT(#x "[" << i << "]", x[i], std::endl)
-#define idbgn(x, i) DBG_PRINT(#x "[" << i << "]", x[i], ", ")
+#define idbgc(x, i) DBG_PRINT(#x "[" << i << "]", x[i], ", ")
 
 /* IO utilities */
-struct read_input { read_input() {}; template<class T> operator T() { T t; std::cin >> t; return t; } };
+struct read_item { read_item() {}; template<class T> operator T() { T t; std::cin >> t; return t; } };
 
 /* types and constants */
 typedef long long i64;
