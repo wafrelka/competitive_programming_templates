@@ -15,14 +15,18 @@ using namespace std;
 
 /* debug macros */
 #ifdef WAFDAYO
-#define DBG_PRINT(s, t, u) { std::cerr << s << " \e[2m=\e[m \e[1m" << t << "\e[m" << u; }
+#define DBG_PRINT(s,t,u) {std::cerr<<(s)<<" \e[2m=\e[m \e[1m"<<(t)<<"\e[m"<<(u);}
+#define SELECT_7TH(x1,x2,x3,x4,x5,x6,x7,...) x7
+#define dbg1(x1) DBG_PRINT(#x1,x1,std::endl)
+#define dbg2(x1,x2) DBG_PRINT(#x1,x1,", ")dbg1(x2)
+#define dbg3(x1,x2,x3) DBG_PRINT(#x1,x1,", ")dbg2(x2,x3)
+#define dbg4(x1,x2,x3,x4) DBG_PRINT(#x1,x1,", ")dbg3(x2,x3,x4)
+#define dbg5(x1,x2,x3,x4,x5) DBG_PRINT(#x1,x1,", ")dbg4(x2,x3,x4,x5)
+#define dbg6(x1,x2,x3,x4,x5,x6) DBG_PRINT(#x1,x1,", ")dbg5(x2,x3,x4,x5,x6)
+#define dbg(...) SELECT_7TH(__VA_ARGS__,dbg6,dbg5,dbg4,dbg3,dbg2,dbg1)(__VA_ARGS__)
 #else
-#define DBG_PRINT(s, t, u) {}
+#define dbg(...) {}
 #endif
-#define dbg(x) DBG_PRINT(#x, x, std::endl)
-#define dbgc(x) DBG_PRINT(#x, x, ", ")
-#define idbg(x, i) DBG_PRINT(#x "[" << i << "]", x[i], std::endl)
-#define idbgc(x, i) DBG_PRINT(#x "[" << i << "]", x[i], ", ")
 
 /* IO utilities */
 struct read_item { read_item() {}; template<class T> operator T() { T t; std::cin >> t; return t; } };
