@@ -11,7 +11,6 @@
 #include <algorithm>
 #include <iostream>
 #include <numeric>
-using namespace std;
 
 /* debug macros */
 #ifdef WAFDAYO
@@ -40,6 +39,8 @@ struct range { RI x, y; RI begin() { return x; } RI end() { return y; } range(in
 typedef long long i64;
 // const i64 inf = (i64)1.05e18;
 // const int inf = (int)1.05e9;
+
+using namespace std;
 
 int main() {
 
