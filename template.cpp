@@ -32,6 +32,10 @@ using namespace std;
 struct read_item { read_item() {}; template<class T> operator T() { T t; std::cin >> t; return t; } };
 char splf(int i, int n) { return (i + 1 < n) ? ' ' : '\n'; };
 
+/* range utilities */
+struct RI { int i; RI(int _i) : i(_i) {}; int operator*() { return i; } void operator++() { i++; } bool operator!=(const RI& r) { return i != r.i; } };
+struct range { RI x, y; RI begin() { return x; } RI end() { return y; } range(int a, int b) : x(a), y(b) {} };
+
 /* types and constants */
 typedef long long i64;
 // const i64 inf = (i64)1.05e18;
