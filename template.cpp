@@ -30,6 +30,7 @@ using namespace std;
 
 /* IO utilities */
 struct read_item { read_item() {}; template<class T> operator T() { T t; std::cin >> t; return t; } };
+char splf(int i, int n) { return (i + 1 < n) ? ' ' : '\n'; };
 
 /* types and constants */
 typedef long long i64;
