@@ -34,7 +34,7 @@ char splf(int i, int n) { return (i + 1 < n) ? ' ' : '\n'; };
 
 /* types and constants */
 typedef long long i64;
-const i64 inf = (i64)1.05e18;
+// const i64 inf = (i64)1.05e18;
 // const int inf = (int)1.05e9;
 
 int main() {
