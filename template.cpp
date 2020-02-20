@@ -33,11 +33,15 @@ SELECT_7TH(__VA_ARGS__,dbg6,dbg5,dbg4,dbg3,dbg2,dbg1)(__VA_ARGS__)
 struct read_item{read_item(){};
 template<class T>operator T(){T t;std::cin>>t;return t;}};
 char splf(int i,int n){return(i+1<n)?' ':'\n';};
-struct RI{int i;RI(int a):i(a){}
-int operator*(){return i;}void operator++(){i+=1;}
-bool operator!=(const RI& r) {return i!=r.i;}};
-struct range{RI x,y;RI begin(){return x;}RI end(){return y;}
-range(int a,int b):x(a),y(b){}range(int a):x(0),y(a){}};
+template<bool up>
+struct _RI{int i;_RI(int a):i(a){}
+int operator*(){return i;}void operator++(){i+=(up?1:-1);}
+bool operator!=(const _RI& r){return up?i<r.i:i>=r.i;}};
+template<bool up>
+struct _RX{_RI<up> x,y;_RI<up> begin(){return x;}_RI<up> end(){return y;}
+_RX(int a,int b):x(up?a:(a-1)),y(b){}_RX(int a):_RX(up?0:a,up?a:0){}};
+typedef _RX<true> range;
+typedef _RX<false> revrange;
 
 /* types and constants */
 typedef long long i64;
