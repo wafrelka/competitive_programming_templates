@@ -44,7 +44,8 @@ typedef _RX<true> range;
 typedef _RX<false> revrange;
 
 /* types and constants */
-typedef long long i64;
+typedef int64_t i64;
+typedef uint64_t u64;
 // const i64 inf = (i64)1.05e18;
 // const int inf = (int)1.05e9;
 
