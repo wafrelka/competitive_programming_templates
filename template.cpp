@@ -36,10 +36,10 @@ char splf(int i,int n){return(i+1<n)?' ':'\n';};
 template<bool up>
 struct _RI{int i;_RI(int a):i(a){}
 int operator*(){return i;}void operator++(){i+=(up?1:-1);}
-bool operator!=(const _RI& r){return up?i<r.i:i>=r.i;}};
+bool operator!=(const _RI& r){return up?i<r.i:i>r.i;}};
 template<bool up>
 struct _RX{_RI<up> x,y;_RI<up> begin(){return x;}_RI<up> end(){return y;}
-_RX(int a,int b):x(up?a:(a-1)),y(b){}_RX(int a):_RX(up?0:a,up?a:0){}};
+_RX(int a,int b):x(up?a:(b-1)),y(up?b:(a-1)){}_RX(int a):_RX(0,a){}};
 typedef _RX<true> range;
 typedef _RX<false> revrange;
 
