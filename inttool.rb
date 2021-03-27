@@ -19,12 +19,14 @@ def intercept(src, dest, &block)
 		begin
 			line = src.readline
 		rescue EOFError
+			dest.close if !dest.nil?
 			return
 		end
 		block.call(line.strip)
 		begin
 			dest.write(line) if !dest.nil?
 		rescue Errno::EPIPE
+			src.close if !src.nil?
 			return
 		end
 		10.times do
