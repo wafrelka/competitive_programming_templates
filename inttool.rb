@@ -5,7 +5,7 @@ def spawn_process(cmd)
 	in_r, in_w = IO.pipe
 	out_r, out_w = IO.pipe
 	err_r, err_w = IO.pipe
-	pid = spawn(*cmd, out: out_w, in: in_r, err: err_w)
+	pid = spawn(*cmd, in: in_r, out: out_w, err: err_w)
 	in_r.close
 	out_w.close
 	err_w.close
@@ -72,12 +72,9 @@ def start(cmd1, cmd2)
 		puts "\e[3#{color}m# right exited\e[m"
 	end
 
-	t1.join
-	t2.join
-	t3.join
-	t4.join
-	t5.join
-	t6.join
+	[t1, t2, t3, t4, t5, t6].each do |t|
+		t.join
+	end
 
 end
 
